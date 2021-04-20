@@ -1,28 +1,11 @@
-# Adonis API application
+# Atividade Registro de Funcionarios
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
-
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
-
-## Setup
-
-Use the adonis command to install the blueprint
-
-```bash
-adonis new yardstick --api-only
-```
-
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
+Os requisitos foram:
+    1 - Cadastro de funcionário (nome, cpf, data de nascimento, salário, número de inscrição)
+    2 – Listagem de Funcionários
+    3 – Detalhes de funcionário
+    4 – Edição de funcionário
+    5 – Exclusão de funcionário
+    6 – Lançamento de pagamento de funcionário
+    7 – Relatório de pagamentos realizados (com query de busca pelo cpf do funcionário e pelo nome)
+    8 – Login do administrador
