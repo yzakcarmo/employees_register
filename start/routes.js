@@ -20,6 +20,6 @@ Route.post("/register", "AuthController.register");
 Route.post("/authenticate", "AuthController.authenticate");
 Route.group(() => {
   Route.resource("employees", "EmployeeController").apiOnly();
-  Route.get("employee_payments/","EmployeeController.salary");
+  Route.get("employee_payments","PaymentController.salary");
   Route.post("employee_payments","PaymentController.store")
 }).middleware(["auth"]);

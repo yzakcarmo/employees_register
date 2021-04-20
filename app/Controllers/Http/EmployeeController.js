@@ -26,7 +26,7 @@ class EmployeeController {
 
     const employees = await Employee.create(data);
 
-    return employees;
+    return response.send(employees);
   }
   async update({ params, request }) {
     const employee = await Employee.findOrFail(params.id);
@@ -47,11 +47,15 @@ class EmployeeController {
 
     employee.delete();
   }
-  async salary({request}){
-    const {name, cpf} = request.all()
-    const query = Employee.query()
-    if({name})
-    query.whereHas("payments", builder => builder.where('name', 'LIKE', '%${name}%'))
+  async salary({ request }) {
+    const { page, limit, param } = request.get();
+    //const {name, cpf} = request.all()
+    const query = Employee.query();
+    if (param)
+      query.whereHas("payments", (builder) =>
+        builder.where("name", "LIKE", "%${param}%")
+      );
+    return await query.orderBy("id", "ASC").paginate(page || 1, limit || 20);
   }
 }
 
